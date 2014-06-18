@@ -1,0 +1,804 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# HyperExperimental API
+HyperExperimental API is a testing api for hyper+json client development.
+
+# Group Root
+
+## Root [/api]
+### Root [GET]
++ Response 200 (application/hyper+json)
+
+        { 
+            "href" : "/api",
+            "current_user" : {
+                "href" : "http://hyperexperimental.apiary-mock.com/api/users/1"
+            },
+            "users" : {
+                "href" : "http://hyperexperimental.apiary-mock.com/api/users",
+                "search" : {
+                    "action" : "http://hyperexperimental.apiary-mock.com/api/users",
+                    "method" : "GET",
+                    "input": {
+                        "search" : {
+                            "type" : "text",
+                            "required" : false,
+                            "value" : "Matt"
+                        },
+                        "page" : {
+                            "type" : "number",
+                            "required" : false,
+                            "value" : 1
+                        },
+                        "page_size" : {
+                            "type" : "number",
+                            "required" : false,
+                            "value" : 20
+                        },
+                        "sort_key" : {
+                            "type" : "text",
+                            "required" : false,
+                            "value" : "first_name"
+                        },
+                        "sort_direction" : {
+                            "type" : "text",
+                            "required" : false,
+                            "value" : "asc"
+                        }
+                    }
+                }
+            }
+        }
+        
+# Group Users
+
+## User Collection [/api/users{?search,page,page_size,sort_key,sort_direction}]
+
+### Search all users [GET]
+
++ Parameters
+    + search (string, optional) ... Filter results by this substring
+    + page = `1` (integer, optional) ... Page number
+    + page_size = `20` (integer, optional) ... Page size
+    + sort_key = `first_name` (string, optional) ... Sort by key
+        + Values
+           + `first_name`
+    + sort_direction = `asc` (string, optional) ... Sort order
+        + Values
+            + `asc`
+            + `desc`
+
++ Response 200 (application/hyper+json)
+
+        {
+            "collection": [
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/100"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/234"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/456"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/132"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/789"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1233"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1434"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/3"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/567"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1442"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/678"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/2342"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/3462"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/4574"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/35675"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/5684"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/243"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/4"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/5678"
+                }
+            ],
+            "prev": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users?search=matt&page=1&page_size=20&sort_key=name&sort_direction=asc"
+            },
+            "next": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users?search=matt&page=3&page_size=10&sort_key=name&sort_direction=asc"
+            },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/users?search=matt&page=2&page_size=10&sort_key=name&sort_direction=asc"
+        }
+        
+### Create a User [POST]
++ Request (application/json)
+
+        {
+            "first_name": "GI",
+            "last_name": "Joe",
+            "display_name": "GI Joe",
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/users/5678"
+        }
+
+## User [/api/users/{user_id}]
+### Retrieve a user [GET]
++ Response 200 (application/hyper+json)
+
+        {
+            "id": 1,
+            "first_name": "Matt",
+            "last_name": "McMurry",
+            "display_name": "Matt McMurry",
+            "created_on": "2014-06-02",
+            "public": "true",
+            "avatar": {
+                "default": {
+                    "url": "http://0.gravatar.com/avatar/40d7909c10c12eb67bf967d6431d4e97"
+                }
+            },
+            "groups": { "href": "http://hyperexperimental.apiary-mock.com/api/users/1/groups" },
+            "friends": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users/1/friends",
+                "count": 10
+            },
+            "notes": { "href": "http://hyperexperimental.apiary-mock.com/api/users/1/notes" },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/users/1"
+        }
+
+### Remove a User [DELETE]
++ Response 204
+
+### Update a user [PATCH]
++ Request (application/json)
+
+        {
+            "first_name": "Matt",
+            "last_name": "McMurry",
+            "display_name": "Matt McMurry",
+            "public": "true"
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/users/1"
+        }
+
+# Group Groups
+## User group collection [/api/users/{user_id}/groups{?page,page_size}]
+### Retrieve a users groups [GET]
+
++ Parameters
+    + page = `1` (integer, optional) ... Page number
+    + page_size = `20` (integer, optional) ... Page size
+
++ Response 200 (application/hyper+json)
+
+        {
+            "collection": [
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/100"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/234"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/456"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/132"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/789"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1233"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1434"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/3"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/567"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1442"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/678"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/2342"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/3462"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/4574"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/35675"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/5684"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/243"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/4"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/5678"
+                }
+            ],
+            "prev": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users/1/groups?page=1&page_size=20"
+            },
+            "next": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users/1/groups?page=3&page_size=10"
+            },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/users/1/groups?page=2&page_size=10"
+        }
+        
+### Connect a user to a group [POST]
++ Request (application/json)
+
+        {
+            "id": 4,
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/users/5678/groups"
+        }
+        
+### Disconnect a user from a group [DELETE]
++ Request (application/json)
+
+        {
+            "id": 455,
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/users/5678/groups"
+        }
+        
+## Group Collection [/api/groups{?search,page,page_size}]
+### Search all users [GET]
+
++ Parameters
+    + search (string, optional) ... Filter results by this substring
+    + page = `1` (integer, optional) ... Page number
+    + page_size = `20` (integer, optional) ... Page size
+    
++ Response 200 (application/hyper+json)
+
+        {
+            "collection": [
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/100"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/234"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/456"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/132"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/789"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1233"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1434"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/3"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/567"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/1442"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/678"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/2342"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/3462"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/4574"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/35675"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/5684"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/243"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/4"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/groups/5678"
+                }
+            ],
+            "prev": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/groups?search=matt&page=1&page_size=20"
+            },
+            "next": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/groups?search=matt&page=3&page_size=10"
+            },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/groups?search=matt&page=2&page_size=10"
+        }
+        
+### Create a Group [POST]
++ Request (application/json)
+
+        {
+            "name": "Hydra",
+            "description": "Perfect society"
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/groups/5678"
+        }
+        
+## Group [/api/groups/{group_id}]
+### Retrieve a group [GET]
++ Response 200 (application/hyper+json)
+
+        {
+            "id" : 400,
+            "name" : "Aviation",
+            "description" : "This group is all about aviation",
+            "created_on" : "2014-06-02",
+            "public" : "true",
+            "administrator" : {
+                "href" : "http://hyperexperimental.apiary-mock.com/api/users/1"
+            },
+            "avatar" : {
+                "default" : {
+                    "url" : "http://www.halland.com/wp-content/uploads/2013/10/Aviation3.jpg"
+                }
+            },
+            "readme": {
+                "url" : "http://public.ccsds.org/publications/archive/650x0b1.pdf"
+            },
+            "members": { "href": "http://hyperexperimental.apiary-mock.com/api/groups/400/users" },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/users/1"
+        }
+
+### Remove a group [DELETE]
++ Response 204
+
+### Update a group [PATCH]
++ Request (application/json)
+
+        {
+            "name" : "Aviation",
+            "description" : "This group is all about aviation",
+            "public" : "true"
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/groups/400"
+        }
+        
+## Group Members Collection [/api/groups/{group_id}/members{?page,page_size}]
+### Users in a Group [GET]
+
++ Parameters
+    + page = `1` (integer, optional) ... Page number
+    + page_size = `20` (integer, optional) ... Page size
+
++ Response 200 (application/hyper+json)
+
+        {
+            "collection": [
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/100"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/234"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/456"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/132"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/789"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1233"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1434"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/3"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/567"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1442"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/678"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/2342"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/3462"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/4574"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/35675"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/5684"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/243"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/4"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/5678"
+                }
+            ],
+            "prev": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/groups/20/members?page=1&page_size=20"
+            },
+            "next": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/groups/20/members?page=3&page_size=20"
+            },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/groups/20/members?page=2&page_size=20"
+        }
+        
+### Connect a user to a group [POST]
++ Request (application/json)
+
+        {
+            "id": 4,
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/groups/5678/members"
+        }
+        
+### Disconnect a user from a group [DELETE]
++ Request (application/json)
+
+        {
+            "id": 455,
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/groups/5678/members"
+        }
+        
+#Group Friends
+## User friends collection [/api/users/{user_id}/friends{?page,page_size}]
+### Retrieve a users friends [GET]
+
++ Parameters
+    + page = `1` (integer, optional) ... Page number
+    + page_size = `20` (integer, optional) ... Page size
+
++ Response 200 (application/hyper+json)
+
+        {
+            "collection": [
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/100"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/234"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/456"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/132"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/789"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1233"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1434"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/3"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/567"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/1442"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/678"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/2342"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/3462"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/4574"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/35675"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/5684"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/243"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/4"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/users/5678"
+                }
+            ],
+            "prev": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users/1/friends?page=1&page_size=20"
+            },
+            "next": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users/1/friends?page=3&page_size=10"
+            },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/users/1/friends?page=2&page_size=10"
+        }
+        
+### Add a friend to the user [POST]
++ Request (application/json)
+
+        {
+            "id": 4,
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/users/1/friends"
+        }
+        
+### Remove a friend from a user [DELETE]
++ Request (application/json)
+
+        {
+            "id": 455,
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/users/1/friends"
+        }
+        
+#Group Notes
+## User notes collection [/api/users/{user_id}/notes{?page,page_size}]
+### Retrieve a users notes [GET]
+
++ Parameters
+    + page = `1` (integer, optional) ... Page number
+    + page_size = `20` (integer, optional) ... Page size
+
++ Response 200 (application/hyper+json)
+
+        {
+            "collection": [
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/1"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/100"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/234"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/456"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/132"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/789"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/1233"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/1434"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/3"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/567"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/1442"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/678"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/2342"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/3462"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/4574"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/35675"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/5684"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/243"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/4"
+                },
+                {
+                    "href" : "http://hyperexperimental.apiary-mock.com/api/notes/5678"
+                }
+            ],
+            "prev": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users/1/notes?page=1&page_size=20"
+            },
+            "next": {
+                "href": "http://hyperexperimental.apiary-mock.com/api/users/1/notes?page=3&page_size=10"
+            },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/users/1/notes?page=2&page_size=10"
+        }
+        
+### Add a note to the user [POST]
++ Request (application/json)
+
+        {
+            "title" : "Things to remember",
+            "body" : "Lock the doors before bed."
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/notes/200"
+        }
+        
+## Note [/api/notes/{note_id}]
+### Retrieve a Note [GET]
++ Response 200 (application/hyper+json)
+
+        {
+            "id" : 10001,
+            "title" : "Awesome Note",
+            "body" : "This is the best note.",
+            "created_on" : "2014-06-02",
+            "public" : "true",
+            "attachment" : {
+                "url" : "http://www.google.com"
+            },
+            "root": { "href": "http://hyperexperimental.apiary-mock.com/api" },
+            "href": "http://hyperexperimental.apiary-mock.com/api/notes/10001"
+        }
+
+### Remove a Note [DELETE]
++ Response 204
+
+### Update a Note [PATCH]
++ Request (application/json)
+
+        {
+            "title": "Shopping list",
+            "body": "Milk",
+            "public": "true"
+        }
+
++ Response 201 (application/hyper+json)
+
+        {
+            "href" : "http://hyperexperimental.apiary-mock.com/api/note/10001"
+        }
