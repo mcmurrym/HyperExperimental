@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "HyperTableViewController.h"
+#import "WebViewController.h"
 
 NSString * const CellIdentifier = @"CELL";
 
@@ -101,7 +102,13 @@ NSString * const CellIdentifier = @"CELL";
                 [SVProgressHUD dismiss];
                 [tableView deselectRowAtIndexPath:indexPath animated:YES];
                 
-                if ([dictionary isCollection]) {
+                if ([dictionary isExternalResource]) {
+                    NSString *urlString = dictionary[HyperDictionaryKeyURL];
+                    
+                    WebViewController *wvc = [[WebViewController alloc] initWithURL:urlString];
+                    
+                    [self.navigationController pushViewController:wvc animated:YES];
+                } else if ([dictionary isCollection]) {
                     HyperTableViewController *hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
                     [self.navigationController pushViewController:hyperVc animated:YES];
                 } else {

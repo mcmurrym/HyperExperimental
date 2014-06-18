@@ -27,6 +27,7 @@
 		BEA85CBE1950A86200F4CC70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CBD1950A86200F4CC70 /* ViewController.m */; };
 		BEA85CC31952376300F4CC70 /* HyperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC21952376300F4CC70 /* HyperTableViewController.m */; };
 		BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */; };
+		BEA85CCA1952449C00F4CC70 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC91952449C00F4CC70 /* WebViewController.m */; };
 		EF2A94E53E444B1E9E010BA5 /* libPods-HyperExperimental.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A158F8EC96F402B96A55F61 /* libPods-HyperExperimental.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		BEA85CC41952378000F4CC70 /* HyperCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyperCollection.h; sourceTree = "<group>"; };
 		BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+HyperCollection.h"; sourceTree = "<group>"; };
 		BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+HyperCollection.m"; sourceTree = "<group>"; };
+		BEA85CC81952449C00F4CC70 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		BEA85CC91952449C00F4CC70 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 				BEA85C86195095A500F4CC70 /* Supporting Files */,
 				BEA85CBC1950A86200F4CC70 /* ViewController.h */,
 				BEA85CBD1950A86200F4CC70 /* ViewController.m */,
+				BEA85CC81952449C00F4CC70 /* WebViewController.h */,
+				BEA85CC91952449C00F4CC70 /* WebViewController.m */,
 				BEA85CC11952376300F4CC70 /* HyperTableViewController.h */,
 				BEA85CC21952376300F4CC70 /* HyperTableViewController.m */,
 			);
@@ -322,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEA85CBE1950A86200F4CC70 /* ViewController.m in Sources */,
+				BEA85CCA1952449C00F4CC70 /* WebViewController.m in Sources */,
 				BEA85CB31950973900F4CC70 /* JSONResponseSerializerWithData.m in Sources */,
 				BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */,
 				BEA85C90195095A500F4CC70 /* AppDelegate.m in Sources */,

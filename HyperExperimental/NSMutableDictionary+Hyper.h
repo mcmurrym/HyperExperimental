@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const HyperDictionaryKeyHref;
+extern NSString * const HyperDictionaryKeyURL;
 
 typedef void(^GETCompletionBlock)(NSMutableDictionary *dictionary, BOOL succeded, NSError *error);
 
@@ -16,5 +17,6 @@ typedef void(^GETCompletionBlock)(NSMutableDictionary *dictionary, BOOL succeded
 
 + (instancetype)dictionaryWithRootHref:(NSString *)rootHref;
 - (void)GET:(GETCompletionBlock)completion;
+- (BOOL)isExternalResource;
 
 @end

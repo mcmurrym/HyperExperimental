@@ -10,6 +10,7 @@
 #import "Network.h"
 
 NSString * const HyperDictionaryKeyHref = @"href";
+NSString * const HyperDictionaryKeyURL = @"url";
 
 @implementation NSMutableDictionary (Hyper)
 
@@ -51,6 +52,17 @@ NSString * const HyperDictionaryKeyHref = @"href";
                        block(self, NO, error);
                    }
                }];
+}
+
+
+- (BOOL)isExternalResource {
+    NSArray *allKeys = [self allKeys];
+    
+    if ([allKeys count] == 1 && [[allKeys firstObject] isEqual:HyperDictionaryKeyURL]) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end
