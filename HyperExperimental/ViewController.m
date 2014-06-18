@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "HyperTableViewController.h"
 
 NSString * const CellIdentifier = @"CELL";
 
@@ -16,7 +17,6 @@ NSString * const CellIdentifier = @"CELL";
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *hyper;
 @property (nonatomic, strong) NSArray *keyOrder;
-@property (nonatomic, strong) NSArray *arrayObject;
 
 @end
 
@@ -31,21 +31,12 @@ NSString * const CellIdentifier = @"CELL";
     return self;
 }
 
-- (id)initWithArrayObject:(NSMutableArray *)arrayObject {
-    self = [super init];
-    
-    self.arrayObject = arrayObject;
-    
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
 
-//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
     [self.view addSubview:self.tableView];
     
     self.tableView.delegate = self;
@@ -66,12 +57,7 @@ NSString * const CellIdentifier = @"CELL";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (self.arrayObject.count) {
-        return self.arrayObject.count;
-    } else {
-        return self.hyper.count;
-    }
+    return self.hyper.count;
 }
 
 
@@ -82,24 +68,16 @@ NSString * const CellIdentifier = @"CELL";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    if (self.arrayObject) {
-        id object = self.arrayObject[indexPath.row];
-        cell.textLabel.text = object[HyperDictionaryKeyHref]?object[HyperDictionaryKeyHref]:[object description];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    } else {
+    id object = self.hyper[self.keyOrder[indexPath.row]];
     
-        id object = self.hyper[self.keyOrder[indexPath.row]];
-        
-        cell.textLabel.text = self.keyOrder[indexPath.row];
-        
-        if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]]) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.detailTextLabel.text = nil;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.detailTextLabel.text = [object description];
-        }
-        
+    cell.textLabel.text = self.keyOrder[indexPath.row];
+    
+    if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]]) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.detailTextLabel.text = nil;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.detailTextLabel.text = [object description];
     }
     
     return cell;
@@ -108,13 +86,7 @@ NSString * const CellIdentifier = @"CELL";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    id object;
-    
-    if (self.arrayObject) {
-        object = self.arrayObject[indexPath.row];
-    } else {
-        object = self.hyper[self.keyOrder[indexPath.row]];
-    }
+    id object = self.hyper[self.keyOrder[indexPath.row]];
 
     if ([object isKindOfClass:[NSDictionary class]]) {
         NSMutableDictionary *dictionary = (NSMutableDictionary *)object;
@@ -128,20 +100,18 @@ NSString * const CellIdentifier = @"CELL";
                 [SVProgressHUD dismiss];
                 [tableView deselectRowAtIndexPath:indexPath animated:YES];
                 
-                ViewController *vc = [[ViewController alloc] initWithLoadedObject:dictionary];
-                
-                [self.navigationController pushViewController:vc animated:YES];
-                
+                if ([dictionary isCollection]) {
+                    HyperTableViewController *hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
+                    [self.navigationController pushViewController:hyperVc animated:YES];
+                } else {
+                    ViewController *vc = [[ViewController alloc] initWithLoadedObject:dictionary];
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
             } else {
                 [SVProgressHUD showErrorWithStatus:error.localizedDescription];
                 [tableView deselectRowAtIndexPath:indexPath animated:YES];
             }
         }];
-    } else if ([object isKindOfClass:[NSArray class]]) {
-        ViewController *vc = [[ViewController alloc] initWithArrayObject:object];
-        vc.title = @"Collection";
-        [self.navigationController pushViewController:vc animated:YES];
-        
     } else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }

@@ -25,6 +25,8 @@
 		BEA85CB81950985000F4CC70 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = BEA85CB71950985000F4CC70 /* settings.json */; };
 		BEA85CBB195098B200F4CC70 /* NSMutableDictionary+Hyper.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */; };
 		BEA85CBE1950A86200F4CC70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CBD1950A86200F4CC70 /* ViewController.m */; };
+		BEA85CC31952376300F4CC70 /* HyperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC21952376300F4CC70 /* HyperTableViewController.m */; };
+		BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */; };
 		EF2A94E53E444B1E9E010BA5 /* libPods-HyperExperimental.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A158F8EC96F402B96A55F61 /* libPods-HyperExperimental.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,11 @@
 		BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Hyper.m"; sourceTree = "<group>"; };
 		BEA85CBC1950A86200F4CC70 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BEA85CBD1950A86200F4CC70 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BEA85CC11952376300F4CC70 /* HyperTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperTableViewController.h; sourceTree = "<group>"; };
+		BEA85CC21952376300F4CC70 /* HyperTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperTableViewController.m; sourceTree = "<group>"; };
+		BEA85CC41952378000F4CC70 /* HyperCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyperCollection.h; sourceTree = "<group>"; };
+		BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+HyperCollection.h"; sourceTree = "<group>"; };
+		BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+HyperCollection.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,10 +148,15 @@
 				BEA85CB71950985000F4CC70 /* settings.json */,
 				BEA85CB9195098B200F4CC70 /* NSMutableDictionary+Hyper.h */,
 				BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */,
+				BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */,
+				BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */,
+				BEA85CC41952378000F4CC70 /* HyperCollection.h */,
 				BEA85C91195095A500F4CC70 /* Images.xcassets */,
 				BEA85C86195095A500F4CC70 /* Supporting Files */,
 				BEA85CBC1950A86200F4CC70 /* ViewController.h */,
 				BEA85CBD1950A86200F4CC70 /* ViewController.m */,
+				BEA85CC11952376300F4CC70 /* HyperTableViewController.h */,
+				BEA85CC21952376300F4CC70 /* HyperTableViewController.m */,
 			);
 			path = HyperExperimental;
 			sourceTree = "<group>";
@@ -311,8 +323,10 @@
 			files = (
 				BEA85CBE1950A86200F4CC70 /* ViewController.m in Sources */,
 				BEA85CB31950973900F4CC70 /* JSONResponseSerializerWithData.m in Sources */,
+				BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */,
 				BEA85C90195095A500F4CC70 /* AppDelegate.m in Sources */,
 				BEA85CBB195098B200F4CC70 /* NSMutableDictionary+Hyper.m in Sources */,
+				BEA85CC31952376300F4CC70 /* HyperTableViewController.m in Sources */,
 				BEA85CB61950984700F4CC70 /* Settings.m in Sources */,
 				BEA85CB01950972300F4CC70 /* Network.m in Sources */,
 				BEA85C8C195095A500F4CC70 /* main.m in Sources */,
