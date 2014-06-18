@@ -18,6 +18,7 @@
 
     [[Settings sharedInstance] loadSettings];
     
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:10]}];
     
     UINavigationController *nav = [[UINavigationController alloc] init];
     nav.navigationBar.translucent = NO;

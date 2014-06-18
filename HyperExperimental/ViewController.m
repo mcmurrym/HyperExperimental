@@ -66,6 +66,7 @@ NSString * const CellIdentifier = @"CELL";
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell.detailTextLabel.lineBreakMode = NSLineBreakByTruncatingHead;
     }
     
     id object = self.hyper[self.keyOrder[indexPath.row]];
