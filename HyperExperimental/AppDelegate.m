@@ -22,7 +22,7 @@
     UINavigationController *nav = [[UINavigationController alloc] init];
     nav.navigationBar.translucent = NO;
     
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithRootHref:@"/api/v2"];
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithRootHref:@"/api"];
     
     [dictionary GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
         

@@ -1,8 +1,5 @@
  {
     "API": {
-        "href": "https://private-279f5-welbe.apiary-mock.com/"
+        "href": "http://hyperexperimental.apiary-mock.com/api/"
     },
-    "webapp": {
-        "href": "https://www.welbeapp.com/"
-    }
 }
