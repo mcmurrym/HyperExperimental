@@ -10,6 +10,6 @@
 
 @interface ViewController : UIViewController
 
-- (id)initWithLoadedObject:(NSMutableDictionary *)hyperObject;
+- (id)initWithHyperObject:(NSMutableDictionary *)hyperObject;
 
 @end

@@ -23,17 +23,15 @@ NSString * const CellIdentifier = @"CELL";
 
 @implementation ViewController
 
-- (id)initWithLoadedObject:(NSMutableDictionary *)hyperObject {
+- (id)initWithHyperObject:(NSMutableDictionary *)hyperObject {
     self = [super init];
     
     self.hyper = hyperObject;
-    self.keyOrder = hyperObject.allKeys;
     
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
@@ -47,8 +45,35 @@ NSString * const CellIdentifier = @"CELL";
     [self.tableView constrainWidthToView:self.view predicate:nil];
     [self.tableView alignCenterWithView:self.view];
 
-    
     self.title = self.hyper[HyperDictionaryKeyHref];
+    
+    NSString *loading = [NSString stringWithFormat:@"Loading: %@", self.hyper[HyperDictionaryKeyHref]];
+    
+    [SVProgressHUD showWithStatus:loading];
+    
+    [self.hyper GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
+        
+        [SVProgressHUD dismiss];
+        
+        if ([dictionary isExternalResource]) {
+            NSString *urlString = dictionary[HyperDictionaryKeyURL];
+            
+            WebViewController *wvc = [[WebViewController alloc] initWithURL:urlString];
+            wvc.view.frame = self.view.frame;
+            [self addChildViewController:wvc];
+            [self.view addSubview:wvc.view];
+            
+        } else if ([dictionary isCollection]) {
+            HyperTableViewController *hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
+            hyperVc.view.frame = self.view.frame;
+            [self addChildViewController:hyperVc];
+            [self.view addSubview:hyperVc.view];
+            
+        } else {
+            self.keyOrder = dictionary.allKeys;
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 
@@ -58,7 +83,7 @@ NSString * const CellIdentifier = @"CELL";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.hyper.count;
+    return self.keyOrder.count;
 }
 
 
@@ -93,33 +118,8 @@ NSString * const CellIdentifier = @"CELL";
     if ([object isKindOfClass:[NSDictionary class]]) {
         NSMutableDictionary *dictionary = (NSMutableDictionary *)object;
         
-        NSString *loading = [NSString stringWithFormat:@"Loading: %@", dictionary[HyperDictionaryKeyHref]];
-        
-        [SVProgressHUD showWithStatus:loading];
-        
-        [dictionary GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
-            if (succeded) {
-                [SVProgressHUD dismiss];
-                [tableView deselectRowAtIndexPath:indexPath animated:YES];
-                
-                if ([dictionary isExternalResource]) {
-                    NSString *urlString = dictionary[HyperDictionaryKeyURL];
-                    
-                    WebViewController *wvc = [[WebViewController alloc] initWithURL:urlString];
-                    
-                    [self.navigationController pushViewController:wvc animated:YES];
-                } else if ([dictionary isCollection]) {
-                    HyperTableViewController *hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
-                    [self.navigationController pushViewController:hyperVc animated:YES];
-                } else {
-                    ViewController *vc = [[ViewController alloc] initWithLoadedObject:dictionary];
-                    [self.navigationController pushViewController:vc animated:YES];
-                }
-            } else {
-                [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-                [tableView deselectRowAtIndexPath:indexPath animated:YES];
-            }
-        }];
+        ViewController *vc = [[ViewController alloc] initWithHyperObject:dictionary];
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }

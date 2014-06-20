@@ -35,21 +35,66 @@ NSString * const HyperDictionaryKeyURL = @"url";
         block = [completion copy];
     }
     
+    [self runCache:href completion:block];
+}
+
+
+- (void)runCache:(NSString *)href completion:(GETCompletionBlock)completion {
+    //I think this should be synchronous so that by the time GET returns any cache data will already prefil the dictionary?
+
+    //Also, it hits the network anyway, this cache session should never hit the network.
+    
+    [[Network cache] GET:href
+              parameters:nil
+                 success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {
+                     NSLog(@"cache hit success");
+                     //should we always run the block or be conditional like the below code?
+                     
+                     if ([responseObject isEqualToDictionary:self]) {
+                         //run network
+                         [self runNetwork:href completion:completion];
+                     } else {
+                         
+                         [self addEntriesFromDictionary:responseObject];
+                         
+                         //order? I chose network first so that it can start
+                         //downloading and the completion block can take as
+                         //long as it wants to.
+                         
+                         //run network
+                         [self runNetwork:href completion:completion];
+                         //run block
+                         if (completion) {
+                             completion(self, YES, nil);
+                         }
+                     }
+                 }
+                 failure:^(NSURLSessionDataTask *task, NSError *error) {
+                     NSLog(@"cache hit fail");
+                     [self runNetwork:href completion:completion];
+                 }];
+}
+
+
+- (void)runNetwork:(NSString *)href completion:(GETCompletionBlock)completion {
+    
     [[Network api] GET:href
             parameters:nil
-               success:^(NSURLSessionDataTask *task, id responseObject) {
-                   NSLog(@"response %@", responseObject);
+               success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {
+                   NSLog(@"network hit sucess");
                    
-                   [self addEntriesFromDictionary:responseObject];
-                   
-                   if (block) {
-                       block(self, YES, nil);
+                   if (![responseObject isEqualToDictionary:self]) {
+                       [self addEntriesFromDictionary:responseObject];
+                       
+                       if (completion) {
+                           completion(self, YES, nil);
+                       }
                    }
                    
                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                   NSLog(@"response error %@", error);
-                   if (block) {
-                       block(self, NO, error);
+                   NSLog(@"network hit fail %@", error);
+                   if (completion) {
+                       completion(self, NO, error);
                    }
                }];
 }

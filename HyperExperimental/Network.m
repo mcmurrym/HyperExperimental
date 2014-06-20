@@ -13,6 +13,7 @@
 @interface Network ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *apiSession;
+@property (nonatomic, strong) AFHTTPSessionManager *apiCacheSession;
 @property (nonatomic, strong) NSURLCache *cache;
 @property (nonatomic, strong) NSURL *apiURL;
 @property (nonatomic, strong) void (^reachabilityStatusChanged)(AFNetworkReachabilityStatus status);
@@ -29,6 +30,11 @@ SHARED_INSTANCE_GCD
 
 + (AFHTTPSessionManager *)api {
     return [Network sharedInstance].apiSession;
+}
+
+
++ (AFHTTPSessionManager *)cache {
+    return [Network sharedInstance].apiCacheSession;
 }
 
 
@@ -49,6 +55,7 @@ SHARED_INSTANCE_GCD
     _checkingConnection = NO;
     _connectionStatusUnknown = YES;
     [self setupOnlineSession];
+    [self setupCacheSession];
     
     return self;
 }
@@ -92,7 +99,7 @@ SHARED_INSTANCE_GCD
 - (void)setupOfflineSession {
     [self.apiSession invalidateSessionCancelingTasks:YES];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    configuration.URLCache = self.cache;
+//    configuration.URLCache = self.cache;
     configuration.requestCachePolicy = NSURLRequestReturnCacheDataDontLoad;
     self.apiSession = [[AFHTTPSessionManager alloc] initWithBaseURL:self.apiURL sessionConfiguration:configuration];
 
@@ -113,12 +120,26 @@ SHARED_INSTANCE_GCD
 }
 
 
+- (void)setupCacheSession {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.URLCache = self.cache;
+    configuration.requestCachePolicy = NSURLRequestReturnCacheDataDontLoad;
+    self.apiCacheSession = [[AFHTTPSessionManager alloc] initWithBaseURL:self.apiURL sessionConfiguration:configuration];
+    [self postSetupCacheConfig];
+}
+
+
 - (void)postSetupConfig {
     self.apiSession.requestSerializer = [[AFJSONRequestSerializer alloc] init];
     [self.apiSession.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-
-//    [self updateUserSettings];
     self.apiSession.responseSerializer = [[JSONResponseSerializerWithData alloc] init];
+}
+
+
+- (void)postSetupCacheConfig {
+    self.apiCacheSession.requestSerializer = [[AFJSONRequestSerializer alloc] init];
+    [self.apiCacheSession.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    self.apiCacheSession.responseSerializer = [[JSONResponseSerializerWithData alloc] init];
 }
 
 

@@ -85,27 +85,8 @@ NSString * const HypeCollectionCellIdentifier = @"CELL";
     if ([object isKindOfClass:[NSDictionary class]]) {
         NSMutableDictionary *dictionary = (NSMutableDictionary *)object;
         
-        NSString *loading = [NSString stringWithFormat:@"Loading: %@", dictionary[HyperDictionaryKeyHref]];
-        
-        [SVProgressHUD showWithStatus:loading];
-        
-        [dictionary GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
-            if (succeded) {
-                [SVProgressHUD dismiss];
-                [tableView deselectRowAtIndexPath:indexPath animated:YES];
-                
-                if ([dictionary isCollection]) {
-                    HyperTableViewController *hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
-                    [self.navigationController pushViewController:hyperVc animated:YES];
-                } else {
-                    ViewController *vc = [[ViewController alloc] initWithLoadedObject:dictionary];
-                    [self.navigationController pushViewController:vc animated:YES];
-                }
-            } else {
-                [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-                [tableView deselectRowAtIndexPath:indexPath animated:YES];
-            }
-        }];
+        ViewController *vc = [[ViewController alloc] initWithHyperObject:dictionary];
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }

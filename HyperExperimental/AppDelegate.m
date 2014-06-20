@@ -25,12 +25,9 @@
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithRootHref:@"/api"];
     
-    [dictionary GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
-        
-        ViewController *vc = [[ViewController alloc] initWithLoadedObject:dictionary];
-        
-        [nav setViewControllers:@[vc] animated:YES];
-    }];
+    ViewController *vc = [[ViewController alloc] initWithHyperObject:dictionary];
+    
+    [nav setViewControllers:@[vc] animated:YES];
     
     self.window.rootViewController = nav;
     

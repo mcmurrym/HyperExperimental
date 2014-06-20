@@ -13,5 +13,6 @@
 
 + (instancetype)sharedInstance;
 + (AFHTTPSessionManager *)api;
++ (AFHTTPSessionManager *)cache;
 
 @end
