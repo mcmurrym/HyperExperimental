@@ -48,5 +48,13 @@
     [self.webView loadRequest:req];
 }
 
+- (void)reloadWithURL:(NSString *)aurl; {
+    self.url = aurl;
+    NSURL *url = [NSURL URLWithString:self.url];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    
+    [self.webView loadRequest:req];
+}
+
 @end
 

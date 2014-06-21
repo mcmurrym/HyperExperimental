@@ -130,4 +130,10 @@ NSString * const HypeCollectionCellIdentifier = @"CELL";
         }];
     }
 }
+
+
+- (void)reloadData {
+    [self reloadData];
+}
+
 @end

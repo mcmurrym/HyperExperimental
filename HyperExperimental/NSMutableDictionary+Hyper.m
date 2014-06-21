@@ -40,10 +40,6 @@ NSString * const HyperDictionaryKeyURL = @"url";
 
 
 - (void)runCache:(NSString *)href completion:(GETCompletionBlock)completion {
-    //I think this should be synchronous so that by the time GET returns any cache data will already prefil the dictionary?
-
-    //Also, it hits the network anyway, this cache session should never hit the network.
-    
     [[Network cache] GET:href
               parameters:nil
                  success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {

@@ -11,5 +11,5 @@
 @interface WebViewController : UIViewController
 
 - (id)initWithURL:(NSString *)url;
-
+- (void)reloadWithURL:(NSString *)url;
 @end

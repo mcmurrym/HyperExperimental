@@ -51,6 +51,9 @@ NSString * const CellIdentifier = @"CELL";
     
     [SVProgressHUD showWithStatus:loading];
     
+    __block WebViewController *wvc;
+    __block HyperTableViewController *hyperVc;
+    
     [self.hyper GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
         
         [SVProgressHUD dismiss];
@@ -58,16 +61,26 @@ NSString * const CellIdentifier = @"CELL";
         if ([dictionary isExternalResource]) {
             NSString *urlString = dictionary[HyperDictionaryKeyURL];
             
-            WebViewController *wvc = [[WebViewController alloc] initWithURL:urlString];
-            wvc.view.frame = self.view.frame;
-            [self addChildViewController:wvc];
-            [self.view addSubview:wvc.view];
+            if (wvc) {
+                [wvc reloadWithURL:urlString];
+            } else {
+                wvc = [[WebViewController alloc] initWithURL:urlString];
+                wvc.view.frame = self.view.frame;
+                [self addChildViewController:wvc];
+                [self.view addSubview:wvc.view];
+            }
+            
             
         } else if ([dictionary isCollection]) {
-            HyperTableViewController *hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
-            hyperVc.view.frame = self.view.frame;
-            [self addChildViewController:hyperVc];
-            [self.view addSubview:hyperVc.view];
+            
+            if (hyperVc) {
+                [hyperVc reloadData];
+            } else {
+                hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
+                hyperVc.view.frame = self.view.frame;
+                [self addChildViewController:hyperVc];
+                [self.view addSubview:hyperVc.view];
+            }
             
         } else {
             self.keyOrder = dictionary.allKeys;
