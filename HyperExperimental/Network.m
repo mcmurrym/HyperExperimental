@@ -91,6 +91,8 @@ SHARED_INSTANCE_GCD
     NSLog(@"\nONLINE\n");
 
     [self postSetupConfig];
+    
+    self.apiSession.requestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
 
     [self checkAPIConnectivitySynchronously];
 }
@@ -99,7 +101,7 @@ SHARED_INSTANCE_GCD
 - (void)setupOfflineSession {
     [self.apiSession invalidateSessionCancelingTasks:YES];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    configuration.URLCache = self.cache;
+    configuration.URLCache = self.cache;
     configuration.requestCachePolicy = NSURLRequestReturnCacheDataDontLoad;
     self.apiSession = [[AFHTTPSessionManager alloc] initWithBaseURL:self.apiURL sessionConfiguration:configuration];
 
@@ -117,6 +119,8 @@ SHARED_INSTANCE_GCD
     NSLog(@"\nOFFLINE\n");
 
     [self postSetupConfig];
+    
+    self.apiSession.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
 }
 
 
@@ -126,6 +130,8 @@ SHARED_INSTANCE_GCD
     configuration.requestCachePolicy = NSURLRequestReturnCacheDataDontLoad;
     self.apiCacheSession = [[AFHTTPSessionManager alloc] initWithBaseURL:self.apiURL sessionConfiguration:configuration];
     [self postSetupCacheConfig];
+    
+    self.apiCacheSession.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
 }
 
 
