@@ -81,10 +81,10 @@ NSString * const HyperDictionaryKeyURL = @"url";
                    
                    if (![responseObject isEqualToDictionary:self]) {
                        [self addEntriesFromDictionary:responseObject];
-                       
-                       if (completion) {
-                           completion(self, YES, nil);
-                       }
+                   }
+                   
+                   if (completion) {
+                       completion(self, YES, nil);
                    }
                    
                } failure:^(NSURLSessionDataTask *task, NSError *error) {
