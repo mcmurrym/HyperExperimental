@@ -133,7 +133,7 @@ NSString * const HypeCollectionCellIdentifier = @"CELL";
 
 
 - (void)reloadData {
-    [self reloadData];
+    [self.tableView reloadData];
 }
 
 @end
