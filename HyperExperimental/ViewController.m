@@ -55,7 +55,6 @@ NSString * const CellIdentifier = @"CELL";
     __block HyperTableViewController *hyperVc;
     
     [self.hyper GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
-        
         [SVProgressHUD dismiss];
         
         if ([dictionary isExternalResource]) {
