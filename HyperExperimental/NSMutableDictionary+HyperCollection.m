@@ -11,7 +11,7 @@
 
 NSString * const HyperDictionaryKeyCollection = @"collection";
 NSString * const HyperDictionaryKeyCollectionNext = @"next";
-NSString * const HyperDictionaryKeyCollectionLastNext = @"__hyper__last_next";
+NSString * const HyperDictionaryKeyCollectionLastNext = @"org.hyper.json.last_next";
 NSString * const HyperDictionaryKeyCollectionPrevious = @"prev";
 
 

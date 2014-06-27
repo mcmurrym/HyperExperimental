@@ -14,8 +14,12 @@ NSString * const HyperDictionaryKeyURL = @"url";
 
 @implementation NSMutableDictionary (Hyper)
 
-+ (instancetype)dictionaryWithRootHref:(NSString *)rootHref {
-    NSMutableDictionary *dict = [@{HyperDictionaryKeyHref: rootHref} mutableCopy];
+static NSMutableDictionary *rootHref;
++ (instancetype)dictionaryWithRootHref:(NSString *)href {
+    NSMutableDictionary *dict = [@{HyperDictionaryKeyHref: href} mutableCopy];
+    
+    rootHref = dict;
+    
     return dict;
 }
 
@@ -92,6 +96,26 @@ NSString * const HyperDictionaryKeyURL = @"url";
     } else {
         return NO;
     }
+}
+
+- (id)objectForKeyedSubscript:(id <NSCopying>)key {
+    id obj = [super objectForKeyedSubscript:key];
+    
+    if ([obj isKindOfClass:[NSDictionary class]]) {
+        NSString *href = obj[HyperDictionaryKeyHref];
+        
+        if (href) {
+            NSURL *url = [NSURL URLWithString:href];
+            NSString *relpath = [url relativePath];
+            
+            if ([href isEqualToString:rootHref[HyperDictionaryKeyHref]] ||
+                [relpath isEqualToString:rootHref[HyperDictionaryKeyHref]]) {
+                return rootHref;
+            }
+        }
+    }
+    
+    return obj;
 }
 
 @end
