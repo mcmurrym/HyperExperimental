@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE3A9B751962179F00C1DA9F /* HyperIndexedTree.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */; };
+		BE3A9B781962193C00C1DA9F /* NSMutableArray+Hyper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */; };
 		BEA85C80195095A500F4CC70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C7F195095A500F4CC70 /* Foundation.framework */; };
 		BEA85C82195095A500F4CC70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C81195095A500F4CC70 /* CoreGraphics.framework */; };
 		BEA85C84195095A500F4CC70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C83195095A500F4CC70 /* UIKit.framework */; };
@@ -44,6 +46,10 @@
 /* Begin PBXFileReference section */
 		3538B00E54BA468FA49D4835 /* Pods-HyperExperimental.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyperExperimental.xcconfig"; path = "Pods/Pods-HyperExperimental.xcconfig"; sourceTree = "<group>"; };
 		3A158F8EC96F402B96A55F61 /* libPods-HyperExperimental.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HyperExperimental.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperIndexedTree.h; sourceTree = "<group>"; };
+		BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperIndexedTree.m; sourceTree = "<group>"; };
+		BE3A9B761962193C00C1DA9F /* NSMutableArray+Hyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Hyper.h"; sourceTree = "<group>"; };
+		BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Hyper.m"; sourceTree = "<group>"; };
 		BEA85C7C195095A500F4CC70 /* HyperExperimental.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperExperimental.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA85C7F195095A500F4CC70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BEA85C81195095A500F4CC70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,6 +157,8 @@
 				BEA85CB71950985000F4CC70 /* settings.json */,
 				BEA85CB9195098B200F4CC70 /* NSMutableDictionary+Hyper.h */,
 				BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */,
+				BE3A9B761962193C00C1DA9F /* NSMutableArray+Hyper.h */,
+				BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */,
 				BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */,
 				BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */,
 				BEA85CC41952378000F4CC70 /* HyperCollection.h */,
@@ -162,6 +170,8 @@
 				BEA85CC91952449C00F4CC70 /* WebViewController.m */,
 				BEA85CC11952376300F4CC70 /* HyperTableViewController.h */,
 				BEA85CC21952376300F4CC70 /* HyperTableViewController.m */,
+				BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */,
+				BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */,
 			);
 			path = HyperExperimental;
 			sourceTree = "<group>";
@@ -329,12 +339,14 @@
 				BEA85CBE1950A86200F4CC70 /* ViewController.m in Sources */,
 				BEA85CCA1952449C00F4CC70 /* WebViewController.m in Sources */,
 				BEA85CB31950973900F4CC70 /* JSONResponseSerializerWithData.m in Sources */,
+				BE3A9B751962179F00C1DA9F /* HyperIndexedTree.m in Sources */,
 				BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */,
 				BEA85C90195095A500F4CC70 /* AppDelegate.m in Sources */,
 				BEA85CBB195098B200F4CC70 /* NSMutableDictionary+Hyper.m in Sources */,
 				BEA85CC31952376300F4CC70 /* HyperTableViewController.m in Sources */,
 				BEA85CB61950984700F4CC70 /* Settings.m in Sources */,
 				BEA85CB01950972300F4CC70 /* Network.m in Sources */,
+				BE3A9B781962193C00C1DA9F /* NSMutableArray+Hyper.m in Sources */,
 				BEA85C8C195095A500F4CC70 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,21 +8,19 @@
 
 #import "NSMutableDictionary+Hyper.h"
 #import "Network.h"
+#import "HyperIndexedTree.h"
 
 NSString * const HyperDictionaryKeyHref = @"href";
 NSString * const HyperDictionaryKeyURL = @"url";
 
 @implementation NSMutableDictionary (Hyper)
 
-static NSMutableDictionary *rootHref;
+
 + (instancetype)dictionaryWithRootHref:(NSString *)href {
     NSMutableDictionary *dict = [@{HyperDictionaryKeyHref: href} mutableCopy];
-    
-    rootHref = dict;
-    
+    [[HyperIndexedTree sharedInstance] addItemToIndex:dict key:href];
     return dict;
 }
-
 
 - (void)GET:(GETCompletionBlock)completion {
     
@@ -98,6 +96,7 @@ static NSMutableDictionary *rootHref;
     }
 }
 
+
 - (id)objectForKeyedSubscript:(id <NSCopying>)key {
     id obj = [super objectForKeyedSubscript:key];
     
@@ -105,17 +104,18 @@ static NSMutableDictionary *rootHref;
         NSString *href = obj[HyperDictionaryKeyHref];
         
         if (href) {
-            NSURL *url = [NSURL URLWithString:href];
-            NSString *relpath = [url relativePath];
+            id indexedObject = [[HyperIndexedTree sharedInstance] indexedObjectWithKey:href];
             
-            if ([href isEqualToString:rootHref[HyperDictionaryKeyHref]] ||
-                [relpath isEqualToString:rootHref[HyperDictionaryKeyHref]]) {
-                return rootHref;
+            if (indexedObject) {
+                obj = indexedObject;
+            } else {
+                [[HyperIndexedTree sharedInstance] addItemToIndex:obj key:href];
             }
         }
     }
     
     return obj;
 }
+
 
 @end

@@ -21,18 +21,21 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - FLKAutoLayout (0.1.1)
+  - MMWeakValue (0.1.0)
   - SharedInstanceGCD (1.0.2)
   - SVProgressHUD (1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
   - FLKAutoLayout (~> 0.1.1)
+  - MMWeakValue (~> 0.1)
   - SharedInstanceGCD (~> 1.0.2)
   - SVProgressHUD (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   FLKAutoLayout: 9fa39aac2903b274fbeed6be74154cdb937a04fc
+  MMWeakValue: 4a11058515247579c57f1f170981f90704bd8566
   SharedInstanceGCD: 75b3730748c98fe1e2d0a42ac63271dc00ee2323
   SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
 
