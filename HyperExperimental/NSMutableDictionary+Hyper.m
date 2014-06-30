@@ -18,7 +18,7 @@ NSString * const HyperDictionaryKeyURL = @"url";
 
 + (instancetype)dictionaryWithRootHref:(NSString *)href {
     NSMutableDictionary *dict = [@{HyperDictionaryKeyHref: href} mutableCopy];
-    [[HyperIndexedTree sharedInstance] addItemToIndex:dict key:href];
+    [[HyperIndexedTree sharedInstance] indexItem:dict forKey:href];
     return dict;
 }
 
@@ -109,7 +109,7 @@ NSString * const HyperDictionaryKeyURL = @"url";
             if (indexedObject) {
                 obj = indexedObject;
             } else {
-                [[HyperIndexedTree sharedInstance] addItemToIndex:obj key:href];
+                [[HyperIndexedTree sharedInstance] indexItem:obj forKey:href];
             }
         }
     }

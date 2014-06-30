@@ -18,7 +18,7 @@ SHARED_INSTANCE_GCD
 
 static NSMutableDictionary *indexedItems;
 
-- (void)addItemToIndex:(id)obj key:(NSString *)hrefKey {
+- (void)indexItem:(id)obj forKey:(NSString *)hrefKey {
     
     if (!indexedItems) {
         indexedItems = [NSMutableDictionary dictionary];

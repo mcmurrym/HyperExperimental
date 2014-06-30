@@ -13,6 +13,6 @@
 + (instancetype)sharedInstance;
 
 - (id)indexedObjectWithKey:(NSString *)hrefKey;
-- (void)addItemToIndex:(id)obj key:(NSString *)hrefKey;
+- (void)indexItem:(id)obj forKey:(NSString *)hrefKey;
 
 @end

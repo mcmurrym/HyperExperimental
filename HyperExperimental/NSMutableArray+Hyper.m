@@ -23,7 +23,7 @@
             if (indexedObject) {
                 obj = indexedObject;
             } else {
-                [[HyperIndexedTree sharedInstance] addItemToIndex:obj key:href];
+                [[HyperIndexedTree sharedInstance] indexItem:obj forKey:href];
             }
         }
     }
