@@ -59,4 +59,18 @@ static NSMutableDictionary *indexedItems;
     return returnValue;
 }
 
+/**
+ *  This will remove niled MMWeakValues. Just not sure on when to call it right now.
+ */
+- (void)clean {
+    NSMutableArray *keysToRemove = [NSMutableArray array];
+    [indexedItems enumerateKeysAndObjectsUsingBlock:^(id key, MMWeakValue *obj, BOOL *stop) {
+        if (!obj.object) {
+            [keysToRemove addObject:key];
+        }
+    }];
+    
+    [indexedItems removeObjectsForKeys:keysToRemove];
+}
+
 @end
