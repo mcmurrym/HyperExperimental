@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE3A9B751962179F00C1DA9F /* HyperIndexedTree.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */; };
 		BE3A9B781962193C00C1DA9F /* NSMutableArray+Hyper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */; };
+		BE3A9B7F19632DCC00C1DA9F /* Hyper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B7E19632DCC00C1DA9F /* Hyper.m */; };
 		BEA85C80195095A500F4CC70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C7F195095A500F4CC70 /* Foundation.framework */; };
 		BEA85C82195095A500F4CC70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C81195095A500F4CC70 /* CoreGraphics.framework */; };
 		BEA85C84195095A500F4CC70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C83195095A500F4CC70 /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperIndexedTree.m; sourceTree = "<group>"; };
 		BE3A9B761962193C00C1DA9F /* NSMutableArray+Hyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Hyper.h"; sourceTree = "<group>"; };
 		BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Hyper.m"; sourceTree = "<group>"; };
+		BE3A9B7D19632DCC00C1DA9F /* Hyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hyper.h; sourceTree = "<group>"; };
+		BE3A9B7E19632DCC00C1DA9F /* Hyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hyper.m; sourceTree = "<group>"; };
 		BEA85C7C195095A500F4CC70 /* HyperExperimental.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperExperimental.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA85C7F195095A500F4CC70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BEA85C81195095A500F4CC70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -342,6 +345,7 @@
 				BE3A9B751962179F00C1DA9F /* HyperIndexedTree.m in Sources */,
 				BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */,
 				BEA85C90195095A500F4CC70 /* AppDelegate.m in Sources */,
+				BE3A9B7F19632DCC00C1DA9F /* Hyper.m in Sources */,
 				BEA85CBB195098B200F4CC70 /* NSMutableDictionary+Hyper.m in Sources */,
 				BEA85CC31952376300F4CC70 /* HyperTableViewController.m in Sources */,
 				BEA85CB61950984700F4CC70 /* Settings.m in Sources */,

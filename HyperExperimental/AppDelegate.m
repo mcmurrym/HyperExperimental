@@ -10,6 +10,7 @@
 #import "Network.h"
 #import "Settings.h"
 #import "ViewController.h"
+#import "Hyper.h"
 
 @implementation AppDelegate
 
@@ -23,7 +24,7 @@
     UINavigationController *nav = [[UINavigationController alloc] init];
     nav.navigationBar.translucent = NO;
     
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithRootHref:@"/api"];
+    NSMutableDictionary *dictionary = [Hyper dictionaryWithRootHref:@"/api"];
     
     ViewController *vc = [[ViewController alloc] initWithHyperObject:dictionary];
     

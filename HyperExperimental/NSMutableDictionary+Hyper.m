@@ -96,26 +96,4 @@ NSString * const HyperDictionaryKeyURL = @"url";
     }
 }
 
-
-- (id)objectForKeyedSubscript:(id <NSCopying>)key {
-    id obj = [super objectForKeyedSubscript:key];
-    
-    if ([obj isKindOfClass:[NSDictionary class]]) {
-        NSString *href = obj[HyperDictionaryKeyHref];
-        
-        if (href) {
-            id indexedObject = [[HyperIndexedTree sharedInstance] indexedObjectWithKey:href];
-            
-            if (indexedObject) {
-                obj = indexedObject;
-            } else {
-                [[HyperIndexedTree sharedInstance] indexItem:obj forKey:href];
-            }
-        }
-    }
-    
-    return obj;
-}
-
-
 @end
