@@ -114,6 +114,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE3A9B801963317B00C1DA9F /* ViewTree */ = {
+			isa = PBXGroup;
+			children = (
+				BEA85CBC1950A86200F4CC70 /* ViewController.h */,
+				BEA85CBD1950A86200F4CC70 /* ViewController.m */,
+				BEA85CC81952449C00F4CC70 /* WebViewController.h */,
+				BEA85CC91952449C00F4CC70 /* WebViewController.m */,
+				BEA85CC11952376300F4CC70 /* HyperTableViewController.h */,
+				BEA85CC21952376300F4CC70 /* HyperTableViewController.m */,
+			);
+			name = ViewTree;
+			sourceTree = "<group>";
+		};
+		BE3A9B811963318B00C1DA9F /* Network and Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BEA85CAE1950972300F4CC70 /* Network.h */,
+				BEA85CAF1950972300F4CC70 /* Network.m */,
+				BEA85CB11950973900F4CC70 /* JSONResponseSerializerWithData.h */,
+				BEA85CB21950973900F4CC70 /* JSONResponseSerializerWithData.m */,
+				BEA85CB41950984700F4CC70 /* Settings.h */,
+				BEA85CB51950984700F4CC70 /* Settings.m */,
+				BEA85CB71950985000F4CC70 /* settings.json */,
+			);
+			name = "Network and Settings";
+			sourceTree = "<group>";
+		};
+		BE3A9B82196331A000C1DA9F /* Hyper */ = {
+			isa = PBXGroup;
+			children = (
+				BEA85CB9195098B200F4CC70 /* NSMutableDictionary+Hyper.h */,
+				BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */,
+				BE3A9B761962193C00C1DA9F /* NSMutableArray+Hyper.h */,
+				BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */,
+				BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */,
+				BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */,
+				BEA85CC41952378000F4CC70 /* HyperCollection.h */,
+				BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */,
+				BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */,
+				BE3A9B7D19632DCC00C1DA9F /* Hyper.h */,
+				BE3A9B7E19632DCC00C1DA9F /* Hyper.m */,
+			);
+			name = Hyper;
+			sourceTree = "<group>";
+		};
 		BEA85C73195095A500F4CC70 = {
 			isa = PBXGroup;
 			children = (
@@ -149,32 +194,13 @@
 		BEA85C85195095A500F4CC70 /* HyperExperimental */ = {
 			isa = PBXGroup;
 			children = (
-				BEA85CAE1950972300F4CC70 /* Network.h */,
-				BEA85CAF1950972300F4CC70 /* Network.m */,
-				BEA85CB11950973900F4CC70 /* JSONResponseSerializerWithData.h */,
-				BEA85CB21950973900F4CC70 /* JSONResponseSerializerWithData.m */,
-				BEA85CB41950984700F4CC70 /* Settings.h */,
-				BEA85CB51950984700F4CC70 /* Settings.m */,
+				BE3A9B82196331A000C1DA9F /* Hyper */,
+				BE3A9B811963318B00C1DA9F /* Network and Settings */,
+				BE3A9B801963317B00C1DA9F /* ViewTree */,
 				BEA85C8E195095A500F4CC70 /* AppDelegate.h */,
 				BEA85C8F195095A500F4CC70 /* AppDelegate.m */,
-				BEA85CB71950985000F4CC70 /* settings.json */,
-				BEA85CB9195098B200F4CC70 /* NSMutableDictionary+Hyper.h */,
-				BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */,
-				BE3A9B761962193C00C1DA9F /* NSMutableArray+Hyper.h */,
-				BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */,
-				BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */,
-				BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */,
-				BEA85CC41952378000F4CC70 /* HyperCollection.h */,
 				BEA85C91195095A500F4CC70 /* Images.xcassets */,
 				BEA85C86195095A500F4CC70 /* Supporting Files */,
-				BEA85CBC1950A86200F4CC70 /* ViewController.h */,
-				BEA85CBD1950A86200F4CC70 /* ViewController.m */,
-				BEA85CC81952449C00F4CC70 /* WebViewController.h */,
-				BEA85CC91952449C00F4CC70 /* WebViewController.m */,
-				BEA85CC11952376300F4CC70 /* HyperTableViewController.h */,
-				BEA85CC21952376300F4CC70 /* HyperTableViewController.m */,
-				BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */,
-				BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */,
 			);
 			path = HyperExperimental;
 			sourceTree = "<group>";
