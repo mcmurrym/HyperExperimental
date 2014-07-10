@@ -10,38 +10,49 @@
 #import <SharedInstanceGCD/SharedInstanceGCD.h>
 #import <MMWeakValue/MMWeakValue.h>
 
+@interface HyperIndexedTree ()
+
+@property (nonatomic, strong) NSMutableDictionary *indexedItems;
+
+@end
+
 @implementation HyperIndexedTree
 
 SHARED_INSTANCE_GCD
 
+- (id)init {
+    self = [super init];
+    
+    self.indexedItems = [@{} mutableCopy];
+    
+    return self;
+}
+
 #pragma mark - manage indexed keys
-
-static NSMutableDictionary *indexedItems;
-
 - (void)indexItem:(id)obj forKey:(NSString *)hrefKey {
     
-    if (!indexedItems) {
-        indexedItems = [NSMutableDictionary dictionary];
+    if (!self.indexedItems) {
+        self.indexedItems = [NSMutableDictionary dictionary];
     }
     
-    indexedItems[hrefKey] = [MMWeakValue weakValueWithObject:obj];
+    self.indexedItems[hrefKey] = [MMWeakValue weakValueWithObject:obj];
 }
 
 - (id)indexedObjectWithKey:(NSString *)hrefKey {
     
-    if (!indexedItems) {
-        indexedItems = [NSMutableDictionary dictionary];
+    if (!self.indexedItems) {
+        self.indexedItems = [NSMutableDictionary dictionary];
     }
     
     id returnValue = nil;
     
-    MMWeakValue *weakValue = indexedItems[hrefKey];
+    MMWeakValue *weakValue = self.indexedItems[hrefKey];
     
     if (!weakValue) {
         NSURL *url = [NSURL URLWithString:hrefKey];
         NSString *relpath = [url relativePath];
         
-        weakValue = indexedItems[relpath];
+        weakValue = self.indexedItems[relpath];
         
         if (weakValue) {
             hrefKey = relpath;
@@ -52,7 +63,7 @@ static NSMutableDictionary *indexedItems;
         if (weakValue.object) {
             returnValue = weakValue.object;
         } else {
-            [indexedItems removeObjectForKey:hrefKey];
+            [self.indexedItems removeObjectForKey:hrefKey];
         }
     }
     
@@ -64,13 +75,13 @@ static NSMutableDictionary *indexedItems;
  */
 - (void)clean {
     NSMutableArray *keysToRemove = [NSMutableArray array];
-    [indexedItems enumerateKeysAndObjectsUsingBlock:^(id key, MMWeakValue *obj, BOOL *stop) {
+    [self.indexedItems enumerateKeysAndObjectsUsingBlock:^(id key, MMWeakValue *obj, BOOL *stop) {
         if (!obj.object) {
             [keysToRemove addObject:key];
         }
     }];
     
-    [indexedItems removeObjectsForKeys:keysToRemove];
+    [self.indexedItems removeObjectsForKeys:keysToRemove];
 }
 
 @end

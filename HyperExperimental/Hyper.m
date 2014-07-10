@@ -80,16 +80,18 @@ NSString * const HyperDictionaryKeyURL = @"url";
             if (indexedObject) {
                 returnObject = indexedObject;
             } else {
+                
+                Hyper *hyper = [Hyper new];
+                hyper.hyperObject = obj;
+                returnObject = hyper;
+                
                 [[HyperIndexedTree sharedInstance] indexItem:returnObject forKey:href];
             }
             
-            Hyper *hyper = [Hyper new];
-            hyper.hyperObject = obj;
-            returnObject = hyper;
         } else {
             Hyper *hyper = [Hyper new];
             hyper.hyperObject = obj;
-            returnObject = hyper;            
+            returnObject = hyper;
         }
         
     } else if ([obj isKindOfClass:[NSArray class]] && ![obj isKindOfClass:[Hyperray class]]) {

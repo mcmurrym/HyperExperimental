@@ -144,17 +144,17 @@
 		BE3A9B82196331A000C1DA9F /* Hyper */ = {
 			isa = PBXGroup;
 			children = (
-				BEA85CC41952378000F4CC70 /* HyperCollection.h */,
-				BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */,
-				BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */,
-				BEA85CC5195237F200F4CC70 /* Hyper+Collection.h */,
-				BEA85CC6195237F200F4CC70 /* Hyper+Collection.m */,
 				BE3A9B7D19632DCC00C1DA9F /* Hyper.h */,
 				BE3A9B7E19632DCC00C1DA9F /* Hyper.m */,
+				BEA85CC5195237F200F4CC70 /* Hyper+Collection.h */,
+				BEA85CC6195237F200F4CC70 /* Hyper+Collection.m */,
+				BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */,
+				BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */,
 				BE591DBB196F18E6007B3C15 /* Hyperray.h */,
 				BE591DBC196F18E6007B3C15 /* Hyperray.m */,
 				BE591DBE196F1A8A007B3C15 /* NSArray+HyperrayValidate.h */,
 				BE591DBF196F1A8A007B3C15 /* NSArray+HyperrayValidate.m */,
+				BEA85CC41952378000F4CC70 /* HyperCollection.h */,
 			);
 			name = Hyper;
 			sourceTree = "<group>";
