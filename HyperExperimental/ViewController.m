@@ -16,14 +16,14 @@ NSString * const CellIdentifier = @"CELL";
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableDictionary *hyper;
+@property (nonatomic, strong) Hyper *hyper;
 @property (nonatomic, strong) NSArray *keyOrder;
 
 @end
 
 @implementation ViewController
 
-- (id)initWithHyperObject:(NSMutableDictionary *)hyperObject {
+- (id)initWithHyperObject:(Hyper *)hyperObject {
     self = [super init];
     
     self.hyper = hyperObject;
@@ -54,11 +54,11 @@ NSString * const CellIdentifier = @"CELL";
     __block WebViewController *wvc;
     __block HyperTableViewController *hyperVc;
     
-    [self.hyper GET:^(NSMutableDictionary *dictionary, BOOL succeded, NSError *error) {
+    [self.hyper GET:^(Hyper *hyper, BOOL succeded, NSError *error) {
         [SVProgressHUD dismiss];
         
-        if ([dictionary isExternalResource]) {
-            NSString *urlString = dictionary[HyperDictionaryKeyURL];
+        if ([hyper isExternalResource]) {
+            NSString *urlString = hyper[HyperDictionaryKeyURL];
             
             if (wvc) {
                 [wvc reloadWithURL:urlString];
@@ -70,19 +70,19 @@ NSString * const CellIdentifier = @"CELL";
             }
             
             
-        } else if ([dictionary isCollection]) {
+        } else if ([hyper isCollection]) {
             
             if (hyperVc) {
                 [hyperVc reloadData];
             } else {
-                hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:dictionary];
+                hyperVc = [[HyperTableViewController alloc] initWithHyperCollection:hyper];
                 hyperVc.view.frame = self.view.frame;
                 [self addChildViewController:hyperVc];
                 [self.view addSubview:hyperVc.view];
             }
             
         } else {
-            self.keyOrder = dictionary.allKeys;
+            self.keyOrder = hyper.allKeys;
             [self.tableView reloadData];
         }
     }];
@@ -127,10 +127,8 @@ NSString * const CellIdentifier = @"CELL";
     
     id object = self.hyper[self.keyOrder[indexPath.row]];
 
-    if ([object isKindOfClass:[NSDictionary class]]) {
-        NSMutableDictionary *dictionary = (NSMutableDictionary *)object;
-        
-        ViewController *vc = [[ViewController alloc] initWithHyperObject:dictionary];
+    if ([object isKindOfClass:[Hyper class]]) {
+        ViewController *vc = [[ViewController alloc] initWithHyperObject:object];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];

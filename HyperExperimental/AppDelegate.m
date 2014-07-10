@@ -24,7 +24,7 @@
     UINavigationController *nav = [[UINavigationController alloc] init];
     nav.navigationBar.translucent = NO;
     
-    NSMutableDictionary *dictionary = [Hyper dictionaryWithRootHref:@"/api"];
+    Hyper *dictionary = [Hyper dictionaryWithRootHref:@"/api"];
     
     ViewController *vc = [[ViewController alloc] initWithHyperObject:dictionary];
     

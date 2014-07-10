@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+HyperCollection.h
+//  Hyper+Collection.h
 //  HyperExperimental
 //
 //  Created by Matt McMurry on 6/18/14.
@@ -13,9 +13,9 @@ extern NSString * const HyperDictionaryKeyCollection;
 extern NSString * const HyperDictionaryKeyCollectionNext;
 extern NSString * const HyperDictionaryKeyCollectionPrevious;
 
-typedef void(^GETNextCompletionBlock)(NSMutableDictionary *dictionary, NSUInteger addedCount, BOOL succeded, NSError *error);
+typedef void(^GETNextCompletionBlock)(Hyper *hyper, NSUInteger addedCount, BOOL succeded, NSError *error);
 
-@interface NSMutableDictionary (HyperCollection) <HyperCollection>
+@interface Hyper (Collection) <HyperCollection>
 
 - (BOOL)isCollection;
 

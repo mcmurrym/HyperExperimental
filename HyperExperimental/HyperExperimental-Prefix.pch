@@ -13,7 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "NSMutableDictionary+Hyper.h"
-    #import "NSMutableDictionary+HyperCollection.h"
     #import <FLKAutoLayout/UIView+FLKAutoLayout.h>
+    #import "Hyper.h"
+    #import "Hyper+Collection.h"
+    #import "NSArray+HyperrayValidate.h"
 #endif

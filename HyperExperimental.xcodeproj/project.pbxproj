@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BE3A9B751962179F00C1DA9F /* HyperIndexedTree.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */; };
-		BE3A9B781962193C00C1DA9F /* NSMutableArray+Hyper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */; };
 		BE3A9B7F19632DCC00C1DA9F /* Hyper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3A9B7E19632DCC00C1DA9F /* Hyper.m */; };
+		BE591DBD196F18E6007B3C15 /* Hyperray.m in Sources */ = {isa = PBXBuildFile; fileRef = BE591DBC196F18E6007B3C15 /* Hyperray.m */; };
+		BE591DC0196F1A8A007B3C15 /* NSArray+HyperrayValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE591DBF196F1A8A007B3C15 /* NSArray+HyperrayValidate.m */; };
 		BEA85C80195095A500F4CC70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C7F195095A500F4CC70 /* Foundation.framework */; };
 		BEA85C82195095A500F4CC70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C81195095A500F4CC70 /* CoreGraphics.framework */; };
 		BEA85C84195095A500F4CC70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA85C83195095A500F4CC70 /* UIKit.framework */; };
@@ -26,10 +27,9 @@
 		BEA85CB31950973900F4CC70 /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CB21950973900F4CC70 /* JSONResponseSerializerWithData.m */; };
 		BEA85CB61950984700F4CC70 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CB51950984700F4CC70 /* Settings.m */; };
 		BEA85CB81950985000F4CC70 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = BEA85CB71950985000F4CC70 /* settings.json */; };
-		BEA85CBB195098B200F4CC70 /* NSMutableDictionary+Hyper.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */; };
 		BEA85CBE1950A86200F4CC70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CBD1950A86200F4CC70 /* ViewController.m */; };
 		BEA85CC31952376300F4CC70 /* HyperTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC21952376300F4CC70 /* HyperTableViewController.m */; };
-		BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */; };
+		BEA85CC7195237F200F4CC70 /* Hyper+Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC6195237F200F4CC70 /* Hyper+Collection.m */; };
 		BEA85CCA1952449C00F4CC70 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA85CC91952449C00F4CC70 /* WebViewController.m */; };
 		EF2A94E53E444B1E9E010BA5 /* libPods-HyperExperimental.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A158F8EC96F402B96A55F61 /* libPods-HyperExperimental.a */; };
 /* End PBXBuildFile section */
@@ -49,10 +49,12 @@
 		3A158F8EC96F402B96A55F61 /* libPods-HyperExperimental.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HyperExperimental.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperIndexedTree.h; sourceTree = "<group>"; };
 		BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperIndexedTree.m; sourceTree = "<group>"; };
-		BE3A9B761962193C00C1DA9F /* NSMutableArray+Hyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Hyper.h"; sourceTree = "<group>"; };
-		BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Hyper.m"; sourceTree = "<group>"; };
 		BE3A9B7D19632DCC00C1DA9F /* Hyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hyper.h; sourceTree = "<group>"; };
 		BE3A9B7E19632DCC00C1DA9F /* Hyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hyper.m; sourceTree = "<group>"; };
+		BE591DBB196F18E6007B3C15 /* Hyperray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hyperray.h; sourceTree = "<group>"; };
+		BE591DBC196F18E6007B3C15 /* Hyperray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hyperray.m; sourceTree = "<group>"; };
+		BE591DBE196F1A8A007B3C15 /* NSArray+HyperrayValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HyperrayValidate.h"; sourceTree = "<group>"; };
+		BE591DBF196F1A8A007B3C15 /* NSArray+HyperrayValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HyperrayValidate.m"; sourceTree = "<group>"; };
 		BEA85C7C195095A500F4CC70 /* HyperExperimental.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperExperimental.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA85C7F195095A500F4CC70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BEA85C81195095A500F4CC70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -76,15 +78,13 @@
 		BEA85CB41950984700F4CC70 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		BEA85CB51950984700F4CC70 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		BEA85CB71950985000F4CC70 /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
-		BEA85CB9195098B200F4CC70 /* NSMutableDictionary+Hyper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Hyper.h"; sourceTree = "<group>"; };
-		BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Hyper.m"; sourceTree = "<group>"; };
 		BEA85CBC1950A86200F4CC70 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BEA85CBD1950A86200F4CC70 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BEA85CC11952376300F4CC70 /* HyperTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperTableViewController.h; sourceTree = "<group>"; };
 		BEA85CC21952376300F4CC70 /* HyperTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperTableViewController.m; sourceTree = "<group>"; };
 		BEA85CC41952378000F4CC70 /* HyperCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyperCollection.h; sourceTree = "<group>"; };
-		BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+HyperCollection.h"; sourceTree = "<group>"; };
-		BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+HyperCollection.m"; sourceTree = "<group>"; };
+		BEA85CC5195237F200F4CC70 /* Hyper+Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hyper+Collection.h"; sourceTree = "<group>"; };
+		BEA85CC6195237F200F4CC70 /* Hyper+Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Hyper+Collection.m"; sourceTree = "<group>"; };
 		BEA85CC81952449C00F4CC70 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		BEA85CC91952449C00F4CC70 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,17 +144,17 @@
 		BE3A9B82196331A000C1DA9F /* Hyper */ = {
 			isa = PBXGroup;
 			children = (
-				BEA85CB9195098B200F4CC70 /* NSMutableDictionary+Hyper.h */,
-				BEA85CBA195098B200F4CC70 /* NSMutableDictionary+Hyper.m */,
-				BE3A9B761962193C00C1DA9F /* NSMutableArray+Hyper.h */,
-				BE3A9B771962193C00C1DA9F /* NSMutableArray+Hyper.m */,
-				BEA85CC5195237F200F4CC70 /* NSMutableDictionary+HyperCollection.h */,
-				BEA85CC6195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m */,
 				BEA85CC41952378000F4CC70 /* HyperCollection.h */,
 				BE3A9B731962179F00C1DA9F /* HyperIndexedTree.h */,
 				BE3A9B741962179F00C1DA9F /* HyperIndexedTree.m */,
+				BEA85CC5195237F200F4CC70 /* Hyper+Collection.h */,
+				BEA85CC6195237F200F4CC70 /* Hyper+Collection.m */,
 				BE3A9B7D19632DCC00C1DA9F /* Hyper.h */,
 				BE3A9B7E19632DCC00C1DA9F /* Hyper.m */,
+				BE591DBB196F18E6007B3C15 /* Hyperray.h */,
+				BE591DBC196F18E6007B3C15 /* Hyperray.m */,
+				BE591DBE196F1A8A007B3C15 /* NSArray+HyperrayValidate.h */,
+				BE591DBF196F1A8A007B3C15 /* NSArray+HyperrayValidate.m */,
 			);
 			name = Hyper;
 			sourceTree = "<group>";
@@ -369,14 +369,14 @@
 				BEA85CCA1952449C00F4CC70 /* WebViewController.m in Sources */,
 				BEA85CB31950973900F4CC70 /* JSONResponseSerializerWithData.m in Sources */,
 				BE3A9B751962179F00C1DA9F /* HyperIndexedTree.m in Sources */,
-				BEA85CC7195237F200F4CC70 /* NSMutableDictionary+HyperCollection.m in Sources */,
+				BEA85CC7195237F200F4CC70 /* Hyper+Collection.m in Sources */,
 				BEA85C90195095A500F4CC70 /* AppDelegate.m in Sources */,
+				BE591DC0196F1A8A007B3C15 /* NSArray+HyperrayValidate.m in Sources */,
 				BE3A9B7F19632DCC00C1DA9F /* Hyper.m in Sources */,
-				BEA85CBB195098B200F4CC70 /* NSMutableDictionary+Hyper.m in Sources */,
 				BEA85CC31952376300F4CC70 /* HyperTableViewController.m in Sources */,
 				BEA85CB61950984700F4CC70 /* Settings.m in Sources */,
 				BEA85CB01950972300F4CC70 /* Network.m in Sources */,
-				BE3A9B781962193C00C1DA9F /* NSMutableArray+Hyper.m in Sources */,
+				BE591DBD196F18E6007B3C15 /* Hyperray.m in Sources */,
 				BEA85C8C195095A500F4CC70 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

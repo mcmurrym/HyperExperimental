@@ -1,12 +1,12 @@
 //
-//  NSMutableDictionary+HyperCollection.m
+//  Hyper+Collection.m
 //  HyperExperimental
 //
 //  Created by Matt McMurry on 6/18/14.
 //  Copyright (c) 2014 OC Tanner. All rights reserved.
 //
 
-#import "NSMutableDictionary+HyperCollection.h"
+#import "Hyper+Collection.h"
 #import "Network.h"
 
 NSString * const HyperDictionaryKeyCollection = @"collection";
@@ -15,7 +15,7 @@ NSString * const HyperDictionaryKeyCollectionLastNext = @"org.hyper.json.last_ne
 NSString * const HyperDictionaryKeyCollectionPrevious = @"prev";
 
 
-@implementation NSMutableDictionary (HyperCollection)
+@implementation Hyper (Collection)
 
 - (NSMutableArray *)collection {
     return self[HyperDictionaryKeyCollection];

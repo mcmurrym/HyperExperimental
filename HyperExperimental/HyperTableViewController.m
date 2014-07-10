@@ -16,13 +16,13 @@ NSString * const HypeCollectionCellIdentifier = @"CELL";
 @interface HyperTableViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableDictionary *hyperCollection;
+@property (nonatomic, strong) Hyper *hyperCollection;
 
 @end
 
 @implementation HyperTableViewController
 
-- (id)initWithHyperCollection:(NSMutableDictionary *)hyperCollection {
+- (id)initWithHyperCollection:(Hyper *)hyperCollection {
     self = [super init];
     
     self.hyperCollection = hyperCollection;
@@ -80,12 +80,11 @@ NSString * const HypeCollectionCellIdentifier = @"CELL";
     
     NSArray *objects = self.hyperCollection[HyperDictionaryKeyCollection];
     
-    NSMutableDictionary *object = objects[indexPath.row];
+    Hyper *object = objects[indexPath.row];
     
-    if ([object isKindOfClass:[NSDictionary class]]) {
-        NSMutableDictionary *dictionary = (NSMutableDictionary *)object;
+    if ([object isKindOfClass:[Hyper class]]) {
         
-        ViewController *vc = [[ViewController alloc] initWithHyperObject:dictionary];
+        ViewController *vc = [[ViewController alloc] initWithHyperObject:object];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];

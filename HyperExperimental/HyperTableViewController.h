@@ -10,6 +10,6 @@
 
 @interface HyperTableViewController : UIViewController
 
-- (id)initWithHyperCollection:(NSMutableDictionary *)hyperCollection;
+- (id)initWithHyperCollection:(Hyper *)hyperCollection;
 - (void)reloadData;
 @end
